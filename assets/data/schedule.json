@@ -1,0 +1,146 @@
+[
+  {
+    "id": "event_001",
+    "title": "수강신청 변경",
+    "category": "academic",
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-11",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_002",
+    "title": "학습 계획 세우기",
+    "category": "academic",
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-14",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_003",
+    "title": "입학 정보 살펴보기",
+    "category": "admission",
+    "startDate": "2026-09-21",
+    "endDate": "2026-09-22",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_004",
+    "title": "가을 학습 휴식 기간",
+    "category": "vacation",
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-02",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_005",
+    "title": "학과 교류 활동",
+    "category": "event",
+    "startDate": "2026-09-30",
+    "endDate": "2026-09-30",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_006",
+    "title": "중간 학습 점검",
+    "category": "academic",
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-07",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_007",
+    "title": "입학 상담 연습",
+    "category": "admission",
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-13",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_008",
+    "title": "가을 휴일 예시",
+    "category": "vacation",
+    "startDate": "2026-10-19",
+    "endDate": "2026-10-19",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_009",
+    "title": "학생 작품 나눔",
+    "category": "event",
+    "startDate": "2026-10-26",
+    "endDate": "2026-10-27",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_010",
+    "title": "2026학년도 수시 2차 접수",
+    "category": "admission",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-25",
+    "note": null,
+    "isSample": false
+  },
+  {
+    "id": "event_011",
+    "title": "학습 결과 정리",
+    "category": "academic",
+    "startDate": "2026-11-16",
+    "endDate": "2026-11-18",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_012",
+    "title": "진로 탐색 모임",
+    "category": "event",
+    "startDate": "2026-11-27",
+    "endDate": "2026-11-27",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_013",
+    "title": "겨울 학습 준비",
+    "category": "academic",
+    "startDate": "2026-12-07",
+    "endDate": "2026-12-09",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_014",
+    "title": "겨울 휴식 기간",
+    "category": "vacation",
+    "startDate": "2026-12-21",
+    "endDate": "2026-12-31",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_015",
+    "title": "새 학기 입학 정보 확인",
+    "category": "admission",
+    "startDate": "2027-02-08",
+    "endDate": "2027-02-09",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  },
+  {
+    "id": "event_016",
+    "title": "새 학기 준비 행사",
+    "category": "event",
+    "startDate": "2027-02-22",
+    "endDate": "2027-02-24",
+    "note": "학습용 샘플 일정",
+    "isSample": true
+  }
+]

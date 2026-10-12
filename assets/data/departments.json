@@ -1,0 +1,122 @@
+[
+  {
+    "id": "dept_ee",
+    "name": "전기전자공학부",
+    "track": "engineering",
+    "summary": "학습용 샘플 소개. 전기와 전자 시스템의 기초를 배우는 학부로 가정한 설명이다.",
+    "curriculum": ["회로 기초", "전자기학", "디지털 시스템", "제어 기초"],
+    "careers": ["전기 설비", "전자 시스템", "자동화 분야"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_me",
+    "name": "기계공학부",
+    "track": "engineering",
+    "summary": "학습용 샘플 소개. 기계 설계와 생산 기술의 기초를 배우는 학부로 가정한 설명이다.",
+    "curriculum": ["기계 설계", "재료 역학", "열역학", "생산 공학"],
+    "careers": ["기계 설계", "생산 기술", "설비 관리"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_che",
+    "name": "화학공학과",
+    "track": "engineering",
+    "summary": "학습용 샘플 소개. 화학 공정과 소재의 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["일반 화학", "화공 양론", "공정 제어", "소재 기초"],
+    "careers": ["화학 공정", "소재 생산", "품질 관리"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_naval",
+    "name": "조선해양시스템공학과",
+    "track": "engineering",
+    "summary": "학습용 샘플 소개. 조선과 해양 시스템의 설계 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["선박 구조", "해양 공학", "용접 기초", "설계 도면"],
+    "careers": ["선박 설계", "생산 관리", "해양 설비"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_cs",
+    "name": "컴퓨터공학과",
+    "track": "engineering",
+    "summary": "학습용 샘플 소개. 소프트웨어와 시스템의 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["프로그래밍 기초", "자료구조", "데이터베이스", "네트워크"],
+    "careers": ["소프트웨어 개발", "시스템 운영", "데이터 처리"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_nursing",
+    "name": "간호학부",
+    "track": "health",
+    "summary": "학습용 샘플 소개. 간호 이론과 실습을 함께 다루는 학부로 가정한 설명이다.",
+    "curriculum": ["기초 간호", "성인 간호", "아동 간호", "간호 실습"],
+    "careers": ["병원 간호", "보건 분야", "건강 관리"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_dental",
+    "name": "치위생학과",
+    "track": "health",
+    "summary": "학습용 샘플 소개. 구강 보건과 치위생 실무를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["구강 해부", "예방 치위생", "치과 재료", "임상 실습"],
+    "careers": ["치과 위생", "구강 보건", "의료 서비스"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_child",
+    "name": "유아교육과",
+    "track": "eduBusiness",
+    "summary": "학습용 샘플 소개. 유아 발달과 교육 활동을 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["유아 발달", "놀이지도", "교육 과정", "교육 실습"],
+    "careers": ["유아 교육", "보육 분야", "교육 콘텐츠"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_tax",
+    "name": "세무회계학과",
+    "track": "eduBusiness",
+    "summary": "학습용 샘플 소개. 회계와 세무 실무의 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["회계 원리", "세법 기초", "원가 회계", "회계 정보"],
+    "careers": ["회계 실무", "세무 지원", "재무 관리"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_food",
+    "name": "식품영양학과",
+    "track": "lifeDesign",
+    "summary": "학습용 샘플 소개. 식품과 영양 관리의 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["영양학", "식품 위생", "조리 과학", "급식 관리"],
+    "careers": ["영양 관리", "식품 품질", "급식 운영"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_hotel",
+    "name": "호텔조리제빵과",
+    "track": "lifeDesign",
+    "summary": "학습용 샘플 소개. 조리와 제과제빵의 실무 기초를 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["기초 조리", "제과 실습", "제빵 실습", "위생 관리"],
+    "careers": ["호텔 조리", "제과제빵", "외식 서비스"],
+    "phone": null,
+    "isSample": true
+  },
+  {
+    "id": "dept_interior",
+    "name": "실내건축디자인과",
+    "track": "lifeDesign",
+    "summary": "학습용 샘플 소개. 실내 공간 설계와 표현 기법을 배우는 학과로 가정한 설명이다.",
+    "curriculum": ["공간 설계", "디자인 표현", "건축 재료", "설계 실습"],
+    "careers": ["실내 설계", "공간 디자인", "전시 디자인"],
+    "phone": null,
+    "isSample": true
+  }
+]
