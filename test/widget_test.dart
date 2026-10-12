@@ -1,30 +1,40 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
-import 'package:uc_campus/main.dart';
+import 'package:uc_campus/app.dart';
+import 'package:uc_campus/data/campus_repository.dart';
+import 'package:uc_campus/state/app_state.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('하단 탭 다섯 개가 자리표시 화면을 전환한다', (tester) async {
+    final repository = CampusRepository.fromLists(
+      departments: const [],
+      notices: const [],
+      events: const [],
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          Provider<CampusRepository>.value(value: repository),
+          ChangeNotifierProvider(create: (_) => AppState()),
+        ],
+        child: const UcCampusApp(),
+      ),
+    );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.text('홈 화면은 준비 중이에요.'), findsOneWidget);
+
+    for (final label in ['학과', '공지', '일정', '마이']) {
+      await tester.tap(find.text(label));
+      await tester.pump();
+      expect(find.text('$label 화면은 준비 중이에요.'), findsOneWidget);
+    }
+
+    await tester.binding.handlePopRoute();
     await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('홈 화면은 준비 중이에요.'), findsOneWidget);
   });
 }
