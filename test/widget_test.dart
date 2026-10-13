@@ -34,6 +34,8 @@ void main() {
         expect(find.text('0개 학과'), findsOneWidget);
       } else if (label == '공지') {
         expect(find.text('0개 공지'), findsOneWidget);
+      } else if (label == '일정') {
+        expect(find.text('이 달에는 일정이 없어요.'), findsOneWidget);
       } else {
         expect(find.text('$label 화면은 준비 중이에요.'), findsOneWidget);
       }
