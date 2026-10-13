@@ -20,6 +20,38 @@ class CampusRepository {
   final List<Notice> notices;
   final List<ScheduleEvent> events;
 
+  /// 제목·본문과 카테고리로 공지를 거르고 새 목록을 정렬한다.
+  List<Notice> searchNotices({
+    String query = '',
+    NoticeCategory? category,
+    NoticeSort sort = NoticeSort.newest,
+  }) {
+    final keyword = query.trim().toLowerCase();
+    final result = notices
+        .where(
+          (notice) =>
+              (category == null || notice.category == category) &&
+              (keyword.isEmpty ||
+                  notice.title.toLowerCase().contains(keyword) ||
+                  notice.body.toLowerCase().contains(keyword)),
+        )
+        .toList();
+    result.sort((left, right) {
+      final comparison = switch (sort) {
+        NoticeSort.newest => right.postedAt.compareTo(left.postedAt),
+        NoticeSort.oldest => left.postedAt.compareTo(right.postedAt),
+        NoticeSort.titleAsc => left.title.compareTo(right.title),
+      };
+      return comparison == 0 ? left.id.compareTo(right.id) : comparison;
+    });
+    return result;
+  }
+
+  /// 최신 공지 중 최대 [limit]개를 돌려준다.
+  List<Notice> recentNotices({int limit = 3}) {
+    return searchNotices().take(limit < 0 ? 0 : limit).toList();
+  }
+
   /// 이름과 소개를 검색하고 계열과 [sort]에 따라 새 학과 목록을 돌려준다.
   /// 찜 우선 정렬에서도 각 묶음의 원래 JSON 순서를 유지한다.
   List<Department> searchDepartments({
