@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 
 import 'package:uc_campus/data/sort_options.dart';
+import 'package:uc_campus/core/date_format.dart';
 import 'package:uc_campus/models/department.dart';
 import 'package:uc_campus/models/json_parse.dart';
 import 'package:uc_campus/models/notice.dart';
@@ -19,6 +20,54 @@ class CampusRepository {
   final List<Department> departments;
   final List<Notice> notices;
   final List<ScheduleEvent> events;
+
+  /// 선택한 달에 하루라도 걸치는 일정을 시작일·종료일·id 순으로 돌려준다.
+  List<ScheduleEvent> eventsInMonth(
+    DateTime month, {
+    ScheduleCategory? category,
+  }) {
+    final first = DateTime(month.year, month.month);
+    final last = DateTime(month.year, month.month + 1, 0);
+    return events
+        .where(
+          (event) =>
+              event.overlaps(first, last) &&
+              (category == null || event.category == category),
+        )
+        .toList()
+      ..sort(_compareEvents);
+  }
+
+  /// 아직 종료되지 않은 일정을 날짜순으로 최대 [limit]개 돌려준다.
+  List<ScheduleEvent> upcomingEvents(DateTime today, {int limit = 3}) {
+    final result =
+        events
+            .where((event) => !event.endDate.isBefore(dateOnly(today)))
+            .toList()
+          ..sort(_compareEvents);
+    return result.take(limit < 0 ? 0 : limit).toList();
+  }
+
+  /// 확인된 사실 중 아직 종료되지 않은 가장 이른 일정을 돌려준다.
+  ScheduleEvent? featuredEvent(DateTime today) {
+    final result =
+        events
+            .where(
+              (event) =>
+                  !event.isSample && !event.endDate.isBefore(dateOnly(today)),
+            )
+            .toList()
+          ..sort(_compareEvents);
+    return result.isEmpty ? null : result.first;
+  }
+
+  /// 일정의 날짜 동률에서도 id로 일관된 순서를 유지한다.
+  static int _compareEvents(ScheduleEvent left, ScheduleEvent right) {
+    final start = left.startDate.compareTo(right.startDate);
+    if (start != 0) return start;
+    final end = left.endDate.compareTo(right.endDate);
+    return end == 0 ? left.id.compareTo(right.id) : end;
+  }
 
   /// 제목·본문과 카테고리로 공지를 거르고 새 목록을 정렬한다.
   List<Notice> searchNotices({
