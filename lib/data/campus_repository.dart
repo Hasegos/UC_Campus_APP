@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+import 'package:uc_campus/data/sort_options.dart';
 import 'package:uc_campus/models/department.dart';
 import 'package:uc_campus/models/json_parse.dart';
 import 'package:uc_campus/models/notice.dart';
@@ -18,6 +19,36 @@ class CampusRepository {
   final List<Department> departments;
   final List<Notice> notices;
   final List<ScheduleEvent> events;
+
+  /// 이름과 소개를 검색하고 계열과 [sort]에 따라 새 학과 목록을 돌려준다.
+  /// 찜 우선 정렬에서도 각 묶음의 원래 JSON 순서를 유지한다.
+  List<Department> searchDepartments({
+    String query = '',
+    DepartmentTrack? track,
+    DepartmentSort sort = DepartmentSort.defaultOrder,
+    Set<String> favoriteIds = const {},
+  }) {
+    final keyword = query.trim().toLowerCase();
+    final result = departments.where((department) {
+      final matchesQuery =
+          keyword.isEmpty ||
+          department.name.toLowerCase().contains(keyword) ||
+          department.summary.toLowerCase().contains(keyword);
+      return matchesQuery && (track == null || department.track == track);
+    }).toList();
+
+    switch (sort) {
+      case DepartmentSort.defaultOrder:
+        return result;
+      case DepartmentSort.nameAsc:
+        return result..sort((left, right) => left.name.compareTo(right.name));
+      case DepartmentSort.favoritesFirst:
+        return [
+          ...result.where((item) => favoriteIds.contains(item.id)),
+          ...result.where((item) => !favoriteIds.contains(item.id)),
+        ];
+    }
+  }
 
   /// 앱 에셋 세 개를 읽고 스키마와 데이터 관계를 검증한다.
   static Future<CampusRepository> load({AssetBundle? bundle}) async {
