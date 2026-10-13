@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:uc_campus/screens/departments/department_list_screen.dart';
+import 'package:uc_campus/screens/home/home_screen.dart';
 import 'package:uc_campus/screens/notices/notice_list_screen.dart';
 import 'package:uc_campus/screens/schedule/schedule_screen.dart';
 
@@ -43,14 +44,6 @@ class _AppShellState extends State<AppShell> {
     ),
   ];
 
-  static const _pages = [
-    _PendingPage(title: '홈'),
-    DepartmentListScreen(),
-    NoticeListScreen(),
-    ScheduleScreen(),
-    _PendingPage(title: '마이'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return PopScope<Object?>(
@@ -61,7 +54,16 @@ class _AppShellState extends State<AppShell> {
         }
       },
       child: Scaffold(
-        body: IndexedStack(index: _tab, children: _pages),
+        body: IndexedStack(
+          index: _tab,
+          children: [
+            HomeScreen(onSelectTab: (index) => setState(() => _tab = index)),
+            const DepartmentListScreen(),
+            const NoticeListScreen(),
+            const ScheduleScreen(),
+            const _PendingPage(title: '마이'),
+          ],
+        ),
         bottomNavigationBar: NavigationBar(
           selectedIndex: _tab,
           destinations: _destinations,
