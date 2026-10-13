@@ -25,10 +25,10 @@ void main() {
     );
 
     expect(find.byType(NavigationBar), findsOneWidget);
-    expect(find.text('홈 화면은 준비 중이에요.'), findsOneWidget);
+    expect(find.text('UCheck 캠퍼스에 오신 걸 환영해요'), findsOneWidget);
 
     for (final label in ['학과', '공지', '일정', '마이']) {
-      await tester.tap(find.text(label));
+      await tester.tap(find.widgetWithText(NavigationDestination, label));
       await tester.pump();
       if (label == '학과') {
         expect(find.text('0개 학과'), findsOneWidget);
@@ -43,6 +43,6 @@ void main() {
 
     await tester.binding.handlePopRoute();
     await tester.pump();
-    expect(find.text('홈 화면은 준비 중이에요.'), findsOneWidget);
+    expect(find.text('UCheck 캠퍼스에 오신 걸 환영해요'), findsOneWidget);
   });
 }
