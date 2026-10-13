@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:uc_campus/screens/departments/department_list_screen.dart';
 import 'package:uc_campus/screens/home/home_screen.dart';
+import 'package:uc_campus/screens/my/my_screen.dart';
 import 'package:uc_campus/screens/notices/notice_list_screen.dart';
 import 'package:uc_campus/screens/schedule/schedule_screen.dart';
 
@@ -61,7 +62,7 @@ class _AppShellState extends State<AppShell> {
             const DepartmentListScreen(),
             const NoticeListScreen(),
             const ScheduleScreen(),
-            const _PendingPage(title: '마이'),
+            MyScreen(onSelectTab: (index) => setState(() => _tab = index)),
           ],
         ),
         bottomNavigationBar: NavigationBar(
@@ -70,21 +71,6 @@ class _AppShellState extends State<AppShell> {
           onDestinationSelected: (index) => setState(() => _tab = index),
         ),
       ),
-    );
-  }
-}
-
-/// 아직 구현하지 않은 탭의 범위를 분명히 보여준다.
-class _PendingPage extends StatelessWidget {
-  const _PendingPage({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: Center(child: Text('$title 화면은 준비 중이에요.')),
     );
   }
 }
