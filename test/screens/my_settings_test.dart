@@ -29,12 +29,21 @@ void main() {
     await tester.tap(find.text('로그인'));
     await tester.pump();
     expect(find.text('학생님'), findsOneWidget);
+    expect(find.textContaining('학습용 샘플 데이터예요.'), findsOneWidget);
     await tester.ensureVisible(find.text('다크'));
     await tester.tap(find.text('다크'));
     await tester.pump();
     expect(state.themeMode, ThemeMode.dark);
-    expect(find.textContaining('학습용 샘플 데이터예요.'), findsOneWidget);
-    await tester.ensureVisible(find.text('로그아웃'));
+    await tester.scrollUntilVisible(
+      find.text('로그아웃'),
+      -300,
+      scrollable: find
+          .descendant(
+            of: find.byType(ListView),
+            matching: find.byType(Scrollable),
+          )
+          .first,
+    );
     await tester.tap(find.text('로그아웃'));
     await tester.pump();
     expect(state.userName, isNull);
