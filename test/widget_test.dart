@@ -37,7 +37,7 @@ void main() {
       } else if (label == '일정') {
         expect(find.text('이 달에는 일정이 없어요.'), findsOneWidget);
       } else {
-        expect(find.text('$label 화면은 준비 중이에요.'), findsOneWidget);
+        expect(find.text('로그인'), findsOneWidget);
       }
     }
 
