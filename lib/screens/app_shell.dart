@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:uc_campus/screens/departments/department_list_screen.dart';
+
 /// 하단 탭 다섯 개의 선택 상태와 자리표시 화면을 관리한다.
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
@@ -41,7 +43,7 @@ class _AppShellState extends State<AppShell> {
 
   static const _pages = [
     _PendingPage(title: '홈'),
-    _PendingPage(title: '학과'),
+    DepartmentListScreen(),
     _PendingPage(title: '공지'),
     _PendingPage(title: '일정'),
     _PendingPage(title: '마이'),
