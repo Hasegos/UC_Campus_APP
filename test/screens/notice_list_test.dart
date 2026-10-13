@@ -38,7 +38,7 @@ void main() {
     expect(state.isRead('notice_001'), isTrue);
     await tester.tap(find.byTooltip('북마크'));
     await tester.pump();
-    await tester.scrollUntilVisible(find.byType(TextField), 200);
+    await tester.ensureVisible(find.byType(TextField));
     await tester.enterText(find.byType(TextField), '읽고 확인');
     await tester.ensureVisible(find.text('저장'));
     await tester.tap(find.text('저장'));
@@ -49,7 +49,7 @@ void main() {
     expect(find.byTooltip('북마크 해제'), findsOneWidget);
     await tester.tap(find.byType(NoticeTile));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.byType(TextField), 200);
+    await tester.ensureVisible(find.byType(TextField));
     expect(
       tester.widget<TextField>(find.byType(TextField)).controller?.text,
       '읽고 확인',
